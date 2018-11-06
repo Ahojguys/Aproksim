@@ -1,3 +1,5 @@
+using System;
+
 namespace Approximation
 {
     public class Point
@@ -9,6 +11,14 @@ namespace Approximation
         }
         public double X { get; set; }
         public double Y { get; set; }
-        
+
+        public static implicit operator System.Drawing.PointF(Point p)  
+        {
+            return new System.Drawing.PointF()
+            {
+                X = (float)p.X,
+                Y = (float)p.Y
+            };
+        }
     }
 }
